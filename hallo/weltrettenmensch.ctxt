@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=weltrettenmensch
+comment1.params=camel\ xOben\ xUnten\ xLinks\ xRechts\ xSchie\u00DFen\ xSound
+comment1.target=weltrettenmensch(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
+comment2.params=
+comment2.target=void\ act()
+numComments=3
