@@ -15,14 +15,7 @@ public class F16 extends Alien
     public void act()
     {
         moving();
-        
-        if(isAtEdge())
-        {
-              getWorld().showText("Game over!!!)", 400, 300);
-              Greenfoot.playSound("heheheha.wav");
-              Greenfoot.stop();  
-        }
-        
+        grenze();
     }
     
 }

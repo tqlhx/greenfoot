@@ -14,6 +14,8 @@ public class Endboss extends Alien
     }
     public void act()
     {
-        // Add your action code here.
+        moving();
+        treffen();
+        grenze();
     }
 }

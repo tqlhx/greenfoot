@@ -8,39 +8,60 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Alien extends Actor
 {
-    int kmh, hp;
+    int kmh, health;
+    MyWorld m;
     
-    public Alien(int xkmh, int xhp)
+    public Alien(int kmh, int health)
     {
-        hp = xhp;
-        kmh = xkmh;
+        this.kmh = kmh;
+        this.health = health;
+    }
+   
+    public void addedToWorld(World w)
+    {
+        m = (MyWorld)w;
     }
     
     
     public void act()
     {
         moving();  
-        getroffen();
-        
+        this.treffen();
+        grenze();
     }
     
-    public void getroffen()
+    public void treffen()
     {
-         if(isTouching(wassermelone.class))
+        if(isTouching(bullet.class))
         {
-            hp = hp -1;
-            removeTouching(wassermelone.class);
+            health = health - 1; //gleich wie = hp -1 
+            removeTouching(bullet.class);
+            if(this.health == 0)
+            {
+                m.anzahlschuesse();
+                m.removeObject(this);
+                Greenfoot.stop();
+            }
         }
-        
-        if(hp == 0);
-        {
-            getWorld().removeObject(this);
-        }
-        
     }
+        
+    public void grenze()
+    {
+        if(isAtEdge())
+         {
+            this.playSound();
+            getWorld().showText("Game over!!!", 400, 300);
+            Greenfoot.stop();
+        }
+    }
+        
+    public void playSound()
+    {
+            
+    }
+
     
-   
-    public void moving()
+   public void moving()
     { 
         move(-kmh); 
     }

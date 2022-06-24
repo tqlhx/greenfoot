@@ -15,11 +15,7 @@ public class Bombe extends Alien
     public void act()
     {
         moving();
-        
-        if(isAtEdge())
-        {
-              getWorld().showText("Game over!!!", 400, 300);
-              Greenfoot.stop();  
-        }
+        treffen();
+        grenze();
     }
 }
